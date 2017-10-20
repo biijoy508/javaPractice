@@ -1,0 +1,137 @@
+﻿* git help (command name)=> to see ddocumentation
+* git config —global user.name (“the name of the user”)
+* git config -global user.email (email)
+*git config —global color.ui true => pretty colours for command line
+* create => stage (add) => commit (commit)
+* log, status, diff is most used
+* git config –-global core.editor “path to program in program files”
+* git config –global core.autocrif false
+* git config --list 
+
+
+
+
+
+1. Git init => initialisation of empty git repository
+2. git status =>command to see what the current state
+3. Git add (filename) => add a file to staging area
+   *Git add ‘*.txt’ => add all file with .txt extension 
+   * git add —all => add all new / modified files
+   * git add doc/ => add everything in docs folder
+   * git add . => add everything
+4. Git commit -m “(commit message)” => commit changes to master repo.
+    *Git commit -a -m (commit message)=> add and commit.  
+    * git commit —amend -m “(commit message)” => modify commit message last commit
+
+6. Git log => a history of all commits,  git log --oneline
+7. Git remote add origin (url of GitHub for example) => define remote storage/ repository 
+                                                        for the project
+   * git remote -v => show the remote repository url
+   * git remote add (name) (url)
+   * git remote rm (name)
+  
+
+8. Git push -u origin(remote storage name) master(name of the local brunch) => literally means push local changes to storage / repository. 
+ 
+
+9. Git pull origin(name of remote:from) master(name of local repo: to) => pulls remote code to local repo
+
+10. Git diff HEAD => checking out if there has been recent commits that has not been pushed to the remote origin. HEAD means the leading/ latest local commit. Following commands are between add and commit -> for the staged state.
+
+   * git diff => fast way to check all differences
+
+   *git diff --staged => check staged changes which are not yet committed 
+
+   * Git reset (file name) => undo stage / remove the last staged file from repo but do  
+     not delete it, for example/ 
+   * git reset HEAD (filename) => same as above, specifiying the latest commit
+   * git reset —soft HEAD^ => bring latest commit to staging state, so we can maybe modify 
+                             and commit again. 
+   * git reset —hard HEAD^ => brutally destroy last commit and all changes
+   * git reset —hard HEAD^^ => last 2 commits brutally destroy.
+13. Git checkout —(filename) => Files can be changed back to how they were at the last commit by using the command. For example, get rid of all the changes since the last commit for octocat.txt or get rid of all modifications to a php file. 
+
+13. Git branch (give the branch a name) => cloning the local repo to a branch. For example, now we have 2 branch , the master and this one we just created . To switch workspace to different branch use the following command.
+19. Git branch -d (branch name) => deleting a branch
+
+14. Git checkout (branch name) => switch between branch workspaces.
+    * git checkout -b (branch name) => create and checkout to a new branch.
+15. Git rm ‘(filename)’ => removing/ completely deleting a file 
+
+16. Before we can copy changes in a branch, we need to first switch to master branch using git checkout master, then, 
+
+17. Git merge (name of branch to be copied)
+18. After merging, most probably, we do not need the branch anymore, lets delete it. 
+
+20 git push => pust to remote. 
+21. Git clone (url)
+22. Git uses VI editor.
+23. Git fetch => sync local and remote
+24. Git merge origin/master
+25 git push
+
+
+26. Git checkout -b (branch name)
+    Git push origin (branch name)
+27. git push origin (branch name) => creating remote branch.
+    Git fetch => pull latest remote commit
+    Git branch -r => list remote branches
+28.git push original :(branch name) => adding a colon : deletes a branch. Wow!! :p 
+29. Git remote show origin => show remote branches
+30. git remote prune origin => to clean local reference of the deleted online branch.
+31. Git tag =>latest version number
+32. Git checkout (tag number) => switch to a different version
+33.git tag -a (tag name) -m (“message”) => adding a new tag / version. 
+34. Git push —tags => push new tags. 
+35. Git rebase —continue => if resolved.
+    Git rebase —skip => skip the patch
+    Git rebase —abort => abort the rebase. 
+36. Git log —since=1.day.ago , git log —oneline,  git log --oneline --graph, git log -p
+37 git diff and git diff HEAD does same but, git diff HEAD^^ (prev 2 comments), 
+Git diff HEAD~5 (previous 5 commits)
+38. Git blame index.html —date short => find out who edited the file 
+39. Reword, edit, pick. Squash
+40. git stash show --patch stash@{2} 
+41. git stash save --keep-index
+42. Backing up a file => git clone poodles poodlesbackup
+43. Filter and delete example=> 
+git filter-branch --tree-filter  'rm -f master_password.txt' 
+* -f means do not fail / even if something fails go ahead. 
+44. git filter-branch -f --tree-filter 'git rm --cached --ignore-unmatch master_username.txt'
+45. git cherry-pick --no-commit b447335 b59d285 => merges two commit and cherry picks.
+46. git submodule init
+
+47 git branch (branchname) (commit hash)
+48.git push --recurse-submodules=check
+49. Git reset —hard (commithash)
+50. Git reflog
+
+Git workflow create branch : git checkout -b kjj/kjkjf
+                             git push --set-upstream origin “monir/update-typo”
+               All these makes local branch sync with remote branch
+
+delete branch local : git branch -D Monir
+delete branch remote:  git push origin --delete Monir
+
+
+Git workflow rebase master to a branch: means first add all commits from master branch and then add branches local commits after them. 
+                             Git pull 
+                             Git checkout branch name
+                             Git pull
+                             Git rebase master
+                             Git push -f
+                            https://git.heroku.com/rdey-statsmanager.git
+In case of conflict, solve conflict by adding or removing the commented block, git add, git status, git rebase —continue
+
+If we forget to merge a branch from master then follow the following steps
+
+git reset --keep HEAD~3
+git checkout -t -b newbranch
+git cherry-pick ..HEAD@{2}
+
+First it discards the 3 most recent commits (--keep is like --hard, but safer, as fails rather than throw away uncommitted changes).
+Then it forks off newbranch.
+Then it cherry-picks those 3 commits back onto newbranch. Since they're no longer referenced by a branch, it does that by using git's reflog: HEAD@{2} is the commit that HEAD used to refer to 2 operations ago, i.e. before we 1. checked out newbranch and 2. used git reset to discard the 3 commits.
+
+
+

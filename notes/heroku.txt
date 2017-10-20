@@ -1,0 +1,42 @@
+Brew install heroku
+Heroku login
+Php -v
+Composer -v
+Git —version
+Heroku create
+Git push heroku master
+heroku ps:scale web=1
+Heroku open
+heroku logs --tail
+Press Control+C to stop streaming the logs.
+Heroic ps
+heroku ps:scale web=0
+composer update
+composer require alrik11es/cowsayphp
+Composer update 
+Git add .
+Git commit -m “lol”
+Git push heroic master
+Heroic open cowsay
+heroku addons:create papertrail
+heroku addons
+heroku addons:open papertrail
+heroku run "php -a"
+Heroic run bash
+
+heroku run bin/console doctrine:migrations:migrate 
+heroku run php bin/console   to see all available commands. 
+
+ 
+
+
+
+
+The Procfile in the example app you deployed looks like this:
+web: vendor/bin/heroku-php-apache2 web/
+This declares a single process type, web, and the command needed to run it. The name web: is important here. It declares that this process type will be attached to the HTTP routing stack of Heroku, and receive web traffic when deployed.
+
+Web Dynos: Web dynos are dynos of the “web” process type that is defined in your Procfile. Only web dynos receive HTTP traffic from the routers.
+Worker Dynos: Worker dynos can be of any process type declared in your Procfile, other than “web”. Worker dynos are typically used for background jobs, queueing systems, and timed jobs. You can have multiple kinds of worker dynos in your application. For example, one for urgent jobs and another for long-running jobs. For more information, see Worker Dynos, Background Jobs and Queueing.
+One-off Dynos: One-off dynos are temporary dynos that can run detached, or with their input/output attached to your local terminal. They’re loaded with your latest release. They can be used to handle administrative tasks, such as database migrations and console sessions. They can also be used to run occasional background work, as with Heroku Scheduler. For more information, see One-Off Dynos
+

@@ -1,0 +1,44 @@
+Not equal to  <>
+SELECT FROM
+UPDATE SET
+INSERT INTO
+DELETE FROM
+DROP TABLE
+WHERE
+ORDER BY
+GROUP BY
+COUNT() AS “name”
+SUM()
+AVG()
+MIN()
+MAX()
+AND
+OR
+HAVING ex. HAVING COUNT(*) >1;
+Constrains during CREATE TABLE: UNIQUE, NOT NULL
+SELECT country, SUM(salary) FROM Actors WHERE role = 'supporting' GROUP BY country HAVING COUNT(*) > 1;
+CREATE TABLE Movies (name varchar(50) NOT NULL UNIQUE,language varchar(50));
+CREATE TABLE Movies (name varchar(50) NOT NULL, language varchar(50), CONSTRAINT name_lang UNIQUE (name, language));
+
+Foreign key :
+Actors 
+  CREATE TABLE Actors (
+  id int PRIMARY KEY,
+  country_id int, //initiaing a variable for foreign key purpose
+  FOREIGN KEY (country_id) REFERENCES Countries(id)); //foreign key
+Countries:
+  CREATE TABLE Countries (
+  id int PRIMARY KEY,
+  name varchar(50));
+
+A non-existent foreign key row results in orphan table. 
+The CHECK constraint is used to validate the value that can be placed in a column.
+salary int CHECK (salary >= 500),
+
+Now we need a join table to map Actors to the Movies they acted in. This join table should have the following name: Actors_Movies
+CREATE TABLE Actors_Movies (
+  actor_id int REFERENCES actors,
+      movie_id int REFERENCES movies
+);
+
+

@@ -1,0 +1,35 @@
+1. in gulp we use variable to initiate and include. 
+2. gulp task to create a task where the task usually looks into a folder does things to files, 
+3. and for doing things we have many plugins to pipe through which are available at gulp homepage. 
+4. That gulp task called ‘default’ can run all gulp tasks at once using gulp command if we put all gulp tasks in the gulp(‘default’,[‘do1’, ‘do 2’]) and in command line just write gulp.
+
+5. Gulp watch can be used to auto recompile tasks if something is changed that we are watching. 
+6. Gulp plumber detects errors and do not stop executing all tasks
+
+Gulp can be used for uplifting, image minimising, css js minimising, auto reload etc.
+
+.
+'use strict';
+
+var gulp = require('gulp'); // initiating
+var concat = require('gulp-concat');
+var gulpif = require('gulp-if');
+var argv = require('yargs').argv;
+var uglify = require('gulp-uglify');
+
+
+module.exports = function(){ // something else
+    gulp.task('admin-js', function() {// gulp task creation with name ‘’
+        return gulp.src([     // here we are specifying which folder and files to work with
+                'bower_components/jquery/jquery.js',
+                'bower_components/bootstrap/dist/js/bootstrap.js',
+                'bower_components/bootstrap3-typeahead/bootstrap3-typeahead.js'
+            ])
+            .pipe(concat('admin.js')) // we are using concat plug
+            .pipe(gulpif(argv.prod, uglify())) // we are using uglify plug is in production environment
+            .pipe(gulp.dest('web/assets/js')); // the path to folder where we will store the processed filtered files.
+    });
+}
+
+
+Less is a css object oriented helper we can say. it can be found in npm. We use variables and functions type stuff which gets translated into css. PHP storm has a nice plug for this and also file watcher plugin in php-storm is cool.
