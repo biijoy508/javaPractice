@@ -112,6 +112,7 @@ Git workflow create branch : git checkout -b kjj/kjkjf
 
 delete branch local : git branch -D Monir
 delete branch remote:  git push origin --delete Monir
+deleteone of the remote references : git remote rm remoteRepositoryReference
 
 
 Git workflow rebase master to a branch: means first add all commits from master branch and then add branches local commits after them. 
@@ -132,6 +133,8 @@ git cherry-pick ..HEAD@{2}
 First it discards the 3 most recent commits (--keep is like --hard, but safer, as fails rather than throw away uncommitted changes).
 Then it forks off newbranch.
 Then it cherry-picks those 3 commits back onto newbranch. Since they're no longer referenced by a branch, it does that by using git's reflog: HEAD@{2} is the commit that HEAD used to refer to 2 operations ago, i.e. before we 1. checked out newbranch and 2. used git reset to discard the 3 commits.
+
+The poor one does rebase.
 
 
 
