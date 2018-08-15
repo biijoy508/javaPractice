@@ -3,8 +3,8 @@
 
 - Lägg till följande rad i din frontend-html-fil 
    
-    <div excel-export load-excel-data="loadExcelData()" 
-    export-data="exportData"file-name="{{fileName}}"></div>
+      <div excel-export load-excel-data="loadExcelData()" 
+      export-data="exportData"file-name="{{fileName}}"></div>
     
 - Backend-kontrollern ska se ut som kodblocket nedan och dessutom kan du lägga till egna anpassningar till den
  
