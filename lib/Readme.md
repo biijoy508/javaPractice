@@ -8,10 +8,10 @@
     
 - Backend-kontrollern ska se ut som kodblocket nedan och dessutom kan du lägga till egna anpassningar till den
  
-     $scope.fileName = 'BudgetTransaktioner'; // Namn på excel fil som kommer att skapas
-     $scope.exportData = []; // Tom array
-     $scope.budgetTransaktionerList = FYLLA PÅ MED DATA SOM KOMMER ATT EXPORTERAS.
-     $scope.excelKolumnTemplate = [{
+      $scope.fileName = 'BudgetTransaktioner'; // Namn på excel fil som kommer att skapas
+      $scope.exportData = []; // Tom array
+      $scope.budgetTransaktionerList = FYLLA PÅ MED DATA SOM KOMMER ATT EXPORTERAS.
+      $scope.excelKolumnTemplate = [{
            wch: 16.5 // Skapad Datum
        }, {
             wch: 12 // Status
